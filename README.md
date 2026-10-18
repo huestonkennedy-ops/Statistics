@@ -1,0 +1,1 @@
+This project asks you for integers until you give the value -1, and then it tells you some facts about that set of numbers
