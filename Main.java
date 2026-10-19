@@ -4,12 +4,14 @@ import java.nio.file.Paths;
 public class Main {
     public static void main(String[] args) {
         /*This reads from the file "Numbers.txt" and assumes everything is an integer, then calls on the scan() method to turn it into an array */
-        try(Scanner scanner = new Scanner(Paths.get("Numbers.txt"))){
-        ArrayList<Integer> myInts = scan(scanner);
-        System.out.println(myInts);
-        } catch(Exception e) {
-            System.out.println("Invalid file name");
-        }
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> myInts = readFile("Numbers.txt");
+        // this reads from
+        Statistics nums = new Statistics(myInts);
+        myInts = scan(scanner);
+         Statistics nums2 = new Statistics(myInts);
+        System.out.println(nums.sum());
+        System.out.println(nums2.sum());
     }
     public static ArrayList<Integer> scan(Scanner scanner) {
         /*This method reads from a scanner, wether it be user input or reading from a file, and converts it into an array. */
@@ -23,5 +25,17 @@ public class Main {
             }
         }
             return(temp);
+    }
+    // I wanted to avoid putting everything in a try catch loop, so I made a function that reads a file, and if the name is invalid, it just returns 0.
+    public static ArrayList<Integer> readFile(String file) {
+ try(Scanner scanner = new Scanner(Paths.get(file))){
+        ArrayList<Integer> temp = scan(scanner);
+        return(temp);
+        } catch(Exception e) {
+            System.out.println("Invalid file name");
+            ArrayList<Integer> temp = new ArrayList<>();
+            temp.add(0);
+            return(temp);
+        }
     }
 }
