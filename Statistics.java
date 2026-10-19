@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 public class Statistics{
+    public Count count = new Count();
     private ArrayList<Integer> numbers;
     private ArrayList<Integer> passingNumbers;
     public Statistics(ArrayList<Integer> numbers) {
@@ -24,7 +25,7 @@ public class Statistics{
         return sum;
     } 
     public int count() {
-        return this.count();
+        return count.count((this.numbers));
     }
     public double average() {
         return (1.0*this.sum())/this.count();
