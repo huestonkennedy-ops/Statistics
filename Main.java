@@ -8,10 +8,8 @@ public class Main {
         ArrayList<Integer> myInts = readFile("Numbers.txt");
         // this reads from
         Statistics nums = new Statistics(myInts);
-        myInts = scan(scanner);
-         Statistics nums2 = new Statistics(myInts);
-        System.out.println(nums.average());
-        System.out.println(nums2.average());
+        System.out.println(nums.gradeDistribution());
+        nums.printNumbers();
     }
     public static ArrayList<Integer> scan(Scanner scanner) {
         /*This method reads from a scanner, wether it be user input or reading from a file, and converts it into an array. */
